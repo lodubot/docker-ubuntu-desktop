@@ -19,31 +19,31 @@ RUN apt update -y && apt install --no-install-recommends -y \
     curl \
     wget \
     git \
-    tzdata
+    tzdata \
+    libgtk-3-0 \
+    libdbus-glib-1-2 \
+    libxt6
 
 RUN apt update -y && apt install -y dbus-x11 x11-utils x11-xserver-utils x11-apps
 RUN apt install software-properties-common -y
-
-# Mozilla PPA add karna
-RUN add-apt-repository ppa:mozillateam/ppa -y
-RUN echo 'Package: *' >> /etc/apt/preferences.d/mozilla-firefox
-RUN echo 'Pin: release o=LP-PPA-mozillateam' >> /etc/apt/preferences.d/mozilla-firefox
-RUN echo 'Pin-Priority: 1001' >> /etc/apt/preferences.d/mozilla-firefox
-RUN echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:jammy";' | tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
-
-RUN apt update -y && apt install -y firefox
 RUN apt update -y && apt install -y xubuntu-icon-theme
 RUN touch /root/.Xauthority
 
-# Sabhi sandbox restrictions ko disable karne ke liye environment variables set karna
+# PPA wale firefox ko chhod kar Mozilla ka official tarball direct download karke /opt mein install karna
+RUN wget -O firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US" && \
+    tar -xjf firefox.tar.bz2 -C /opt/ && \
+    rm firefox.tar.bz2 && \
+    ln -s /opt/firefox/firefox /usr/bin/firefox
+
+# Environment variables
 ENV MOZ_DISABLE_CONTENT_SANDBOX=1
 ENV MOZ_ALLOW_ROOT=1
 
-# Firefox ko direct bina sandbox ke chalane ke liye wrapper script
+# Safe wrapper script
 RUN echo '#!/bin/bash' > /usr/local/bin/firefox-safe && \
     echo 'export MOZ_DISABLE_CONTENT_SANDBOX=1' >> /usr/local/bin/firefox-safe && \
     echo 'export MOZ_ALLOW_ROOT=1' >> /usr/local/bin/firefox-safe && \
-    echo 'exec /usr/bin/firefox --no-sandbox --disable-features=site-per-process "$@"' >> /usr/local/bin/firefox-safe && \
+    echo 'exec /opt/firefox/firefox --no-sandbox --disable-features=site-per-process "$@"' >> /usr/local/bin/firefox-safe && \
     chmod +x /usr/local/bin/firefox-safe
 
 EXPOSE 5901
