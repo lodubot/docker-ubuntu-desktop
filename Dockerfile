@@ -24,7 +24,7 @@ RUN apt update -y && apt install --no-install-recommends -y \
 RUN apt update -y && apt install -y dbus-x11 x11-utils x11-xserver-utils x11-apps
 RUN apt install software-properties-common -y
 
-# Mozilla PPA add karna (Latest Firefox ke liye)
+# Mozilla PPA add karna
 RUN add-apt-repository ppa:mozillateam/ppa -y
 RUN echo 'Package: *' >> /etc/apt/preferences.d/mozilla-firefox
 RUN echo 'Pin: release o=LP-PPA-mozillateam' >> /etc/apt/preferences.d/mozilla-firefox
@@ -35,10 +35,15 @@ RUN apt update -y && apt install -y firefox
 RUN apt update -y && apt install -y xubuntu-icon-theme
 RUN touch /root/.Xauthority
 
-# Firefox container crash fix ke liye safe wrapper script banana
+# Sabhi sandbox restrictions ko disable karne ke liye environment variables set karna
+ENV MOZ_DISABLE_CONTENT_SANDBOX=1
+ENV MOZ_ALLOW_ROOT=1
+
+# Firefox ko direct bina sandbox ke chalane ke liye wrapper script
 RUN echo '#!/bin/bash' > /usr/local/bin/firefox-safe && \
     echo 'export MOZ_DISABLE_CONTENT_SANDBOX=1' >> /usr/local/bin/firefox-safe && \
-    echo 'exec /usr/bin/firefox --no-sandbox "$@"' >> /usr/local/bin/firefox-safe && \
+    echo 'export MOZ_ALLOW_ROOT=1' >> /usr/local/bin/firefox-safe && \
+    echo 'exec /usr/bin/firefox --no-sandbox --disable-features=site-per-process "$@"' >> /usr/local/bin/firefox-safe && \
     chmod +x /usr/local/bin/firefox-safe
 
 EXPOSE 5901
