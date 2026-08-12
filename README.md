@@ -1,37 +1,36 @@
 ⚡ Dev_Null_X — Ubuntu Desktop Docker
 
-<div align="center">🐧 Ubuntu Desktop • Docker • Web VNC
+<div align="center">🐧 Ubuntu Desktop • 🐳 Docker • 🌐 Web VNC
 
-Run a complete Ubuntu Desktop environment directly inside Docker.
+Run a complete Ubuntu Desktop environment inside Docker
+and access it directly from your web browser.
 
-🌐 Browser Accessible • ⚡ Fast Setup • 🐳 Docker Powered • 🔥 Dev_Null_X
-
-<br>""Docker" (https://img.shields.io/badge/Docker-Powered-2496ED?style=for-the-badge&logo=docker&logoColor=white)" (#)
-""Ubuntu" (https://img.shields.io/badge/Ubuntu-Desktop-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)" (#)
+""Docker" (https://img.shields.io/badge/Docker-Powered-2496ED?style=for-the-badge&logo=docker&logoColor=white)" (https://www.docker.com/)
+""Ubuntu" (https://img.shields.io/badge/Ubuntu-Desktop-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)" (https://ubuntu.com/)
 ""VNC" (https://img.shields.io/badge/Web-VNC-4CAF50?style=for-the-badge)" (#)
-""Dev_Null_X" (https://img.shields.io/badge/Dev__Null__X-Official-black?style=for-the-badge)" (#)
+""Dev_Null_X" (https://img.shields.io/badge/Dev_Null_X-Official-black?style=for-the-badge)" (#)
 
 </div>---
 
 ✨ Features
 
-🐧 Full Ubuntu Desktop Environment
-🌐 Access Ubuntu directly from your browser
-🐳 Runs completely inside Docker
-⚡ Simple & Fast Deployment
-🖥️ Web-based VNC Interface
-🔧 Easy to Customize
-🚀 Developer Friendly
+- 🐧 Full Ubuntu Desktop Environment
+- 🌐 Browser-based VNC access
+- 🐳 Docker powered
+- ⚡ Quick & simple setup
+- 🖥️ NoVNC web interface
+- 🔧 Easy to customize
+- 🚀 Suitable for VPS & development
 
 ---
 
 🚀 Quick Start
 
-1️⃣ Pull / Build the Image
+📦 Build Image
 
 docker build . -t docker-ubuntu-desktop
 
-2️⃣ Start Ubuntu Desktop
+▶️ Run Container
 
 docker run -it --platform=linux/amd64 \
   -p 6080:6080 \
@@ -39,67 +38,68 @@ docker run -it --platform=linux/amd64 \
 
 ---
 
-🌐 Open Ubuntu Desktop
+🌐 Access Desktop
 
-After the container starts, open:
+After starting the container, open your browser:
 
 http://YOUR_SERVER_IP:6080/vnc.html
 
-Or:
-
-https://YOUR_SERVER_IP:6080/vnc.html
-
-«💡 Replace "YOUR_SERVER_IP" with your VPS/server IP address.»
+Replace "YOUR_SERVER_IP" with your VPS/server IP.
 
 ---
 
-🐳 Docker
+🐳 Docker Commands
 
-Pull the image:
+Pull Image
 
 docker pull docker-ubuntu-desktop
 
-Run:
+Run Image
 
-docker run -it --platform=linux/amd64 -p 6080:6080 docker-ubuntu-desktop
+docker run -it --platform=linux/amd64 \
+  -p 6080:6080 \
+  docker-ubuntu-desktop
 
 ---
 
-⚙️ Server Requirements
+⚙️ Recommended Requirements
 
 Resource| Recommended
 🧠 CPU| 2+ Cores
-💾 RAM| 2GB+
-💽 Storage| 10GB+
+💾 RAM| 2 GB+
+💽 Storage| 10 GB+
 🐳 Docker| Latest
 🌐 Port| "6080"
 
 ---
 
+📸 Screenshot
+
+"Ubuntu Desktop" (screenshot.png)
+
+---
+
 🔥 Dev_Null_X
 
-<div align="center">🚀 Built • Configured • Shared by Dev_Null_X
+<div align="center">🚀 Powered & Shared by Dev_Null_X
 
-Developer Community
+Build • Deploy • Create
 
-📢 Telegram
-@Dev_Null_X_NODE_JS
+📢 Telegram: "@Dev_Null_X_NODE_JS"
 
-👤 Telegram
-@MOTU_PATALU_HINDU_HAI
+👤 Telegram: "@MOTU_PATALU_HINDU_HAI"
 
-▶️ YouTube
-Dev_Null_X
+▶️ YouTube: "@Dev_Null_X"
 
 </div>---
 
 ⭐ Support
 
-If this project helps you:
+If you find this project useful:
 
 ⭐ Star the repository
-🍴 Fork the project
-📢 Share with your friends
+🍴 Fork the repository
+📢 Share with others
 ▶️ Subscribe to Dev_Null_X
 
 ---
