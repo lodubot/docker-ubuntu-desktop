@@ -1,38 +1,35 @@
-# docker-ubuntu-desktop
+🐳 Docker Ubuntu Desktop — Dev_Null_X
+
 Ubuntu Desktop Web Browser Accessible Docker Image
 
-## ScreenShot
-![screenshot](screenshot.png)
+📸 Screenshot
 
-## Usage
-```
-$ docker run -it --platform=linux/amd64 -p 6080:6080 akarita/docker-ubuntu-desktop
-```
+"screenshot" (screenshot.png)
 
-## Access
-```
+🚀 Usage
+
+docker run -it --platform=linux/amd64 -p 6080:6080 docker-ubuntu-desktop
+
+🌐 Access
+
 http://localhost:6080/vnc.html
-```
 
 or
 
-```
 https://localhost:6080/vnc.html
-```
 
-## DockerHub
+⬇️ Docker Pull
 
-https://hub.docker.com/r/akarita/docker-ubuntu-desktop
+docker pull docker-ubuntu-desktop
 
-## Docker Pull
-```
-$ docker pull akarita/docker-ubuntu-desktop
-```
+🔨 Docker Build
 
-## Docker Build
-```
-$ docker build . -t docker-ubuntu-desktop
-```
+docker build . -t docker-ubuntu-desktop
 
-## License
-MIT License (c) 2023 [Takahashi Akari](https://github.com/takahashi-akari)
+👨‍💻 Dev_Null_X
+
+📢 Telegram: https://t.me/Dev_Null_X_NODE_JS
+👤 Telegram: @MOTU_PATALU_HINDU_HAI
+▶️ YouTube: https://www.youtube.com/@Dev_Null_X
+
+Dev_Null_X — Docker Ubuntu Desktop Edition 🚀
